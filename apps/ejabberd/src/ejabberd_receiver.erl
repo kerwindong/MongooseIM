@@ -381,7 +381,7 @@ element_wrapper(Element) ->
     Element.
 
 reset_parser(undefined) ->
-    {ok, NewParser} = exml_stream:new_parser(),
+    {ok, NewParser} = exml_stream:new_parser([{start_tag, <<"stream:stream">>}]),
     NewParser;
 reset_parser(Parser) ->
     {ok, NewParser} = exml_stream:reset_parser(Parser),
