@@ -35,6 +35,15 @@
   {git,"git://github.com/uwiger/edown.git",
        {ref,"d864427506cd93a00712b7c3b9a89d793e7e1600"}},
   0},
+ {<<"eini">>,{pkg,<<"eini">>,<<"1.2.4">>},1},
+ {<<"erlcloud">>,
+  {git,"git://github.com/erlcloud/erlcloud.git",
+       {ref,"c1196989a8e7a5f45ddd7b4f81bbbc2ffcfc8274"}},
+  0},
+ {<<"exml">>,
+  {git,"git://github.com/esl/exml.git",
+       {ref,"f8579038f936923b7c4f5e56b26e738e05c50672"}},
+  0},
  {<<"exometer">>,
   {git,"git://github.com/esl/exometer.git",
        {ref,"fa4f539823b42744bbb9cd42b22ec71305ce4b8f"}},
@@ -71,6 +80,7 @@
   {git,"git://github.com/davisp/jiffy.git",
        {ref,"06aaf440e091c9fd5f8aea557ac760a33bd37130"}},
   0},
+ {<<"jsx">>,{pkg,<<"jsx">>,<<"2.8.0">>},1},
  {<<"lager">>,
   {git,"git://github.com/basho/lager.git",
        {ref,"81eaef0ce98fdbf64ab95665e3bc2ec4b24c7dac"}},
@@ -83,6 +93,7 @@
   {git,"git://github.com/inaka/lasse.git",
        {ref,"692eaec1a226a6247f8450fc23b86b8afc1cee7a"}},
   0},
+ {<<"lhttpc">>,{pkg,<<"lhttpc">>,<<"1.5.1">>},1},
  {<<"lz4">>,
   {git,"https://github.com/szktty/erlang-lz4.git",
        {ref,"30878eafeff35939052c2cafe17d21c95029d3a1"}},
@@ -186,5 +197,8 @@
   0}]}.
 [
 {pkg_hash,[
+ {<<"eini">>, <<"ABD64A0533398A6D714D21219BB85F2D41FDB42665AC4080939B7BFA8E55F386">>},
+ {<<"jsx">>, <<"749BEC6D205C694AE1786D62CEA6CC45A390437E24835FD16D12D74F07097727">>},
+ {<<"lhttpc">>, <<"2137CB82D123751B21CC0461A00734CD32CB470BC6278BA139EE13C1ECC3C2B1">>},
  {<<"p1_utils">>, <<"EF0951DDF38E92B7E479AF4B8DC950DF76AF8C1030432EF68B7FD7AD17C436FE">>}]}
 ].

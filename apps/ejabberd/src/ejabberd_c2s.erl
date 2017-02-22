@@ -3074,7 +3074,6 @@ sasl_challenge_stanza(Challenge) ->
            children = Challenge}.
 
 handle_sasl_success(State, Creds) ->
-    (State#state.sockmod):reset_stream(State#state.socket),
     ServerOut = mongoose_credentials:get(Creds, sasl_success_response, undefined),
     send_element(State, sasl_success_stanza(ServerOut)),
     User = mongoose_credentials:get(Creds, username),
