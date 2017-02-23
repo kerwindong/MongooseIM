@@ -12,7 +12,7 @@
 -include("ejabberd.hrl").
 
 %% API
--export([new/0, from_kv/2, put/3, get/2, get/3, append/3, to_map/1]).
+-export([new/0, from_kv/2, put/3, get/2, get/3, append/3, to_map/1, remove/2]).
 -export([store/4, retrieve/3, retrieve/4]).
 -export([from_element/1, from_map/1, update/2, is_acc/1]).
 -export([initialise/3, terminate/3, dump/1]).
@@ -126,6 +126,10 @@ retrieve(Key, Index, Accumulator, Default) ->
         undefined -> Default;
         M -> maps:get(Index, M, Default)
     end.
+
+-spec remove(Key :: atom(), Accumulator :: t()) -> t().
+remove(Key, Accumulator) ->
+    maps:remove(Key, Accumulator).
 
 %%%%% internal %%%%%
 
