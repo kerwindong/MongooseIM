@@ -36,13 +36,13 @@ all() ->
 
 groups() ->
     [
-        {pm_msg_notifications, [parallel], [
+        {pm_msg_notifications, [], [
             pm_msg_notify_on_apns_no_click_action,
             pm_msg_notify_on_fcm_no_click_action,
             pm_msg_notify_on_apns_w_click_action,
             pm_msg_notify_on_fcm_w_click_action
         ]},
-        {muclight_msg_notifications, [parallel], [
+        {muclight_msg_notifications, [], [
             muclight_msg_notify_on_apns_no_click_action,
             muclight_msg_notify_on_fcm_no_click_action,
             muclight_msg_notify_on_apns_w_click_action,
@@ -406,12 +406,19 @@ get_push_logs(Service, DeviceToken, Config) ->
     wait_for(timer:seconds(10), fun() ->
         {ok, #{body := Body}} = shotgun:get(PushMock, <<"/activity">>),
         #{<<"logs">> := Logs} = jiffy:decode(Body, [return_maps]),
+                                    
         DeviceLogs = lists:filter(
             fun(#{<<"device_token">> := Token}) ->
                 DeviceToken =:= Token
             end, Logs),
-        true = length(DeviceLogs) > 0,
-        DeviceLogs
+
+        case length(DeviceLogs) > 0 of 
+            true -> 
+                DeviceLogs;
+            false ->
+                ct:pal("get_push_logs ~p", [{Service, DeviceToken, Logs}]),
+                throw({no_push_messages, DeviceToken})
+        end             
      end).
 
 %% ----------------------------------
